@@ -1,7 +1,7 @@
-import { add } from "./controller";
+// import { add } from "./controller";
 
-const express=require('express')
+// const express=require('express')
 
-const router=express.Router();
-router.post("/",add);
-export default router;
+// const router=express.Router();
+// router.post("/",add);
+// export default router;

@@ -1,22 +1,23 @@
+import content_owner from "../entity/content_owner";
+import publisher from "../entity/publisher";
+import tbl_book from "../entity/tbl_book";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 
-import post from "../entity/post";
-import useracc from "../entity/useracc";
 require("dotenv").config();
 
 const AppDataSource = new DataSource({
-  type: "postgres",
+  type: "mysql",
   host: process.env.HOST,
-  port: 5432,
-  username: process.env.USER,
+  port: 3306,
+  username: process.env.DB_USER,
   password: process.env.PW,
   database: process.env.DB,
-  synchronize: false,
+  synchronize: true,
   logging: false,
-  migrationsRun: false,
-  ssl: true,
-  entities: [useracc, post],
+  migrationsRun: true,
+  ssl: false,
+  entities: ["dist/entity/*.js"],
   migrations: ["dist/migration/*.js"],
 });
 export default AppDataSource;
